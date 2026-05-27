@@ -463,7 +463,7 @@ export default function App() {
       const history = clauseComments.map(c => `${c.user}: ${c.text}`).join('\n');
       
       const prompt = `You are a professional legal negotiator. Review the following comment history between a consultant and a company regarding Clause ${activeCommentClause}:\n\n${history}\n\nSuggest a professional response, clarification, or a compromise. Provide ONLY the suggested response text without quotes or preamble.`;
-      const apiKey = ""; 
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
       const payload = { contents: [{ parts: [{ text: prompt }] }] };
       
