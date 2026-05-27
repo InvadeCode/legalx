@@ -320,7 +320,7 @@ export default function App() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer re_UAif4zBM_Jh94gvczCXamGQmfLupKGgT2'
+          'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`
         },
         body: JSON.stringify({
           from: 'InvadeCode Legal <invadecodelegal@emails.liaisonit.com>',
@@ -436,7 +436,7 @@ export default function App() {
     setAiLoading(clauseId);
     try {
       const prompt = `You are an expert legal assistant. Explain the standard legal clause titled "${title}" in the context of an Independent Business Development Consultant Agreement. Keep it under 3 sentences, simple enough for a non-lawyer to understand.`;
-      const apiKey = "AIzaSyDpFqW8LpBmfDdaW4ueHbLiAMIX4YO7LYM"; // Left empty as per environment rules
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
       const payload = { contents: [{ parts: [{ text: prompt }] }] };
       
